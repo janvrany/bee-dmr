@@ -7,22 +7,14 @@ Class {
 	#name : #Kernel,
 	#superclass : #Module,
 	#instVars : [
-		'runtime'
+		'runtime' ,
+		'entrypointReceiver',
+		'entrypointMethod'
 	],
 	#category : #Kernel
 }
 
-Kernel >> entry: argc argv: argv [
-	<callback: long (long, pointer)>
-	"^Smalltalk startSession"
-	^Kernel new foo.
+Kernel >> entry: argc argv: argv [	
+	^5 factorial
 
 ]
-
-Kernel >> foo [
-	| result |
-	"self _halt."
-	#(1 2 3 4 5) do: [:i | result := i].
-	^result
-]
-
